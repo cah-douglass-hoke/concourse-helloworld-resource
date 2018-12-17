@@ -1,2 +1,2 @@
 #!/bin/bash
-echo '[{ "message": "Hello World!" }]'
+echo '[{ "ref": "none",  "message": "Hello World!" }]'

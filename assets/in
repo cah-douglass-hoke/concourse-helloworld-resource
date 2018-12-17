@@ -1,2 +1,2 @@
 #!/bin/bash
-echo '{ "message": "Hello World!" }'
+echo '{ "version": { "ref": "none", "message": "Hello World" }, metadata: [{ "message": "Hello World" }] }'
