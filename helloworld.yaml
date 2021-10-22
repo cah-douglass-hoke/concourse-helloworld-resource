@@ -1,0 +1,23 @@
+resource_types:
+- name: helloworld
+  type: docker-image
+  source:
+    # set repo of your helloworld resource
+    repository: {{YOUR_ACCOUNT/HELLOWORLD_RESOURCE}}
+    ## or use my helloworld resource
+    # repository: yoshiyuki/concourse-helloworld-resource
+
+resources:
+- name: helloworld
+  type: helloworld
+
+jobs:
+- name: Hello World
+  plan:
+  - get: helloworld
+  - put: helloworld
+- name: Hello World No Implicit Get
+  plan:
+  - get: helloworld
+  - put: helloworld
+    get_params: {skip_download: true}

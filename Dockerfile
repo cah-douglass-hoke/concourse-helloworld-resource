@@ -1,5 +1,5 @@
-FROM alpine:3.7
-RUN apk add --update --upgrade --no-cache bash
+FROM alpine:3.14
+RUN apk update && apk add --upgrade bash jq
 ADD assets /opt/resource
 RUN chmod +x /opt/resource/*
 WORKDIR /

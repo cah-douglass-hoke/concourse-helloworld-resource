@@ -2,6 +2,7 @@
 A super simple exmaple of Concourse Resource. Just say "Hello World" on your Concourse!
 
 ```yaml
+# U DONT NEED TO VVV
 # save this file as helloworld.yaml
 resource_types:
 - name: helloworld
@@ -21,6 +22,13 @@ jobs:
   plan:
   - get: helloworld
   - put: helloworld
+```
+
+### Build the container
+```
+docker build . -f Dockerfile -t whatevs:1.0
+docker tag whatevs:1.0 <yourrepo>/hatevs:1.0
+docker push <yourrepo>/hatevs:1.0
 ```
 
 ```shell
