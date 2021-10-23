@@ -1,6 +1,8 @@
 # concourse-helloworld-resource
 A super simple exmaple of Concourse Resource. Just say "Hello World" on your Concourse!
 
+This is the orginal example - you can use the helloworld.yaml in the repo
+
 ```yaml
 # U DONT NEED TO VVV
 # save this file as helloworld.yaml
@@ -26,9 +28,9 @@ jobs:
 
 ### Build the container
 ```
-docker build . -f Dockerfile -t whatevs:1.0
-docker tag whatevs:1.0 <yourrepo>/hatevs:1.0
-docker push <yourrepo>/hatevs:1.0
+docker build . -f Dockerfile -t whatevs:0.1
+docker tag whatevs:0.1 <yourrepo>/whatevs:0.1
+docker push <yourrepo>/hatevs:0.1
 ```
 
 ```shell
