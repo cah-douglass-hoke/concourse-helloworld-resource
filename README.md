@@ -25,10 +25,13 @@ resources:
   type: helloworld
 
 jobs:
-- name: Hello World
+- name: hello_world
   plan:
-  - get: helloworld
   - put: helloworld
+- name: hello_world_no_implicit_get
+  plan:
+  - put: helloworld
+    get_params: { skip_download: true }
 ```
 
 ### Build the container
