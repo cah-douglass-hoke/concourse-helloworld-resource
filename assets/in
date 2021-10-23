@@ -1,14 +1,21 @@
 #!/bin/bash
 
-
-set -e
+set -xe
 
 exec 3>&1 # make stdout available as fd 3 for the result
 exec 1>&2 # redirect all output to stderr for logging
 
-payload="$(cat <&0)"
+DEST="$1"
+
+payload=$(mktemp /tmp/resource-in.XXXXXX)
+cat > "${payload}" <&0
+
+echo "$payload"
+cat "$payload"
 
 skip_download="$(jq -r '.params.skip_download // false' < $payload)"
+
+echo "$skip_download"
 
 if [ "$skip_download" = "false" ]; then
   echo '{ "version": { "ref": "none", "message": "Hello World" }, "metadata": [{ "name": "message", "value": "Hello World" }] }'

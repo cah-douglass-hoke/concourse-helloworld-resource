@@ -1,9 +1,10 @@
 resource_types:
 - name: helloworld
-  type: docker-image
+  type: registry-image
   source:
     # set repo of your helloworld resource
-    repository: {{YOUR_ACCOUNT/HELLOWORLD_RESOURCE}}
+    repository: nexus.cardinalhealth.net:8445/security/testimplicitget
+    tag: 1.0.4
     ## or use my helloworld resource
     # repository: yoshiyuki/concourse-helloworld-resource
 
@@ -12,12 +13,10 @@ resources:
   type: helloworld
 
 jobs:
-- name: Hello World
+- name: hello_world
   plan:
-  - get: helloworld
   - put: helloworld
-- name: Hello World No Implicit Get
+- name: hello_world_no_implicit_get
   plan:
-  - get: helloworld
   - put: helloworld
-    get_params: {skip_download: true}
+    get_params: { skip_download: true }
